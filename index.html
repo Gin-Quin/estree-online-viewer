@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EsTree online viewer</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="water-light.css">
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<script src="esprima.js"></script>
+		<script src="cute-dump.js"></script>
+		<!-- Ace [code editor] -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js"></script>
+	</head>
+
+
+	<body>
+		<header>
+			<p>Online tool to vizualize live an EcmaScript AST. The AST is described by these <a href="https://github.com/estree/estree">ESTree specifications</a>.</p>
+			<p>The tool uses the <a href="https://www.npmjs.com/package/esprima">Esprima</a> praser to produce the AST.</p>
+			<p>The AST object is prettily dumped into a <a href="https://en.wikipedia.org/wiki/YAML">YAML</a>-like format thanks to the <a href="https://www.npmjs.com/package/cute-dump">cute-dump</a> library.</p>
+		</header>
+
+		<main>
+			<div>
+				<header><i id="source-arrow">↶</i> EcmaScript source code</header>
+				<div class="wrapper">
+					<div id="editor">var zabu = 21
+var zabu = 21
+var zabu = 21
+var zabu = 21</div>
+				</div>
+			</div>
+			<div>
+				<header>EcmaScript AST <i id="source-arrow">↷</i></header>
+				<div class="wrapper">
+					<div id="dumper"></div>
+				</div>
+			</div>
+		</main>
+
+		<footer>
+			
+		</footer>
+	</body>
+
+	<script src="index.js"></script>
+</html>

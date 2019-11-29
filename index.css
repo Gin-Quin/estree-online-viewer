@@ -1,0 +1,78 @@
+
+html {
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+
+body {
+	max-width: 1080px;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+}
+
+body > main {
+	display: flex;
+	flex: 1;
+	/*overflow: auto;*/
+}
+
+body > main > * {
+	flex: 1;
+	flex-shrink: 0;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+}
+
+body > main > * > header {
+	text-align: center;
+	/*margin-bottom: 12px;*/
+	height: 32px;
+}
+
+.wrapper {
+	border: 1px solid #ccc;
+	flex: 1;
+	overflow: auto;
+}
+
+#editor, #dumper {
+	white-space: pre;
+}
+
+#editor {
+
+}
+
+#dumper {
+	padding: 8px;
+	font-family: monospace;
+}
+
+
+.cute-dump-property {
+   color: #777;
+   font-weight: bold;
+}
+ 
+.cute-dump-number {
+   font-weight: bold;
+   color: #8a2b8a;
+}
+ 
+.cute-dump-keyword {
+   font-weight: bold;
+   font-style: italic;
+   color: #4fa2d6;
+}
+ 
+.cute-dump-string {
+   font-weight: bold;
+   color: #21a033;
+}

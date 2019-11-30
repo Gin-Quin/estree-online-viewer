@@ -1,78 +1,116 @@
-
 html {
-	display: flex;
-	justify-content: center;
-	width: 100vw;
-	height: 100vh;
+  overflow: visible;
 }
-
-
 body {
-	max-width: 1080px;
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	margin: 20px;
+  width: 94vw;
+  height: 100vh;
+  max-width: 1280px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
 }
-
+body > header {
+  height: 100px;
+}
+body > .titles {
+  display: flex;
+  height: 42px;
+  color: #efefef;
+  font-weight: bold;
+}
+body > .titles .arrow {
+  position: relative;
+  font-size: 22px;
+  bottom: 1px;
+}
+body > .titles .arrow.source {
+  right: 13px;
+  color: #ffff76;
+}
+body > .titles .arrow.ast {
+  left: 8px;
+  color: #ff85ff;
+}
+body > .titles > * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 body > main {
-	display: flex;
-	flex: 1;
-	/*overflow: auto;*/
+  display: flex;
+  flex: 1;
 }
-
 body > main > * {
-	flex: 1;
-	flex-shrink: 0;
-	padding: 16px;
-	display: flex;
-	flex-direction: column;
-	overflow: auto;
+  flex: 1;
+  flex-shrink: 0;
+  overflow: auto;
 }
-
-body > main > * > header {
-	text-align: center;
-	/*margin-bottom: 12px;*/
-	height: 32px;
-}
-
-.wrapper {
-	border: 1px solid #ccc;
-	flex: 1;
-	overflow: auto;
-}
-
-#editor, #dumper {
-	white-space: pre;
-}
-
-#editor {
-
-}
-
+#editor,
 #dumper {
-	padding: 8px;
-	font-family: monospace;
+  white-space: pre;
+  border: 1px solid #555;
+  height: calc(100vh - 190px);
+  overflow: auto;
+  margin: 0 9px;
+  padding: 8px;
 }
-
-
+#dumper {
+/*padding 8px*/
+  font-family: monospace;
+  background-color: #282a36;
+  font-size: 14px;
+}
+#dumper > error {
+  display: block;
+  background: #d30e0e;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 2px;
+}
+/**
+* Dumper style
+*/
 .cute-dump-property {
-   color: #777;
-   font-weight: bold;
+  color: #ff79c6;
+  font-weight: bold;
 }
- 
 .cute-dump-number {
-   font-weight: bold;
-   color: #8a2b8a;
+  font-weight: bold;
+  color: #bd93f9;
 }
- 
 .cute-dump-keyword {
-   font-weight: bold;
-   font-style: italic;
-   color: #4fa2d6;
+  font-weight: bold;
+  font-style: italic;
+  color: #8be9fd;
 }
- 
 .cute-dump-string {
-   font-weight: bold;
-   color: #21a033;
+  font-weight: bold;
+  color: #f1fa8c;
+}
+@media screen and (max-width: 800px), (max-height: 600px) {
+  body > header {
+    display: none;
+  }
+  #editor,
+  #dumper {
+    height: calc(100vh - 90px);
+  }
+}
+@media screen and (max-width: 700px) {
+  body > .titles {
+    display: none;
+  }
+  body > main {
+    display: block;
+    height: 100vh;
+  }
+  #editor,
+  #dumper {
+    height: 41vh;
+    margin-top: 3vh;
+  }
 }

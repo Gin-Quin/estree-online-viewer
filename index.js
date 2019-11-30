@@ -4,13 +4,23 @@ const dumper = withId('dumper')
 
 const editor = ace.edit("editor", {
 	mode: "ace/mode/javascript",
-	theme: 'ace/theme/xcode',
+	theme: 'ace/theme/dracula',
 	fontSize: '15px'
 })
 
-dumper.innerHTML = cute.html(esprima.parse(editor.getValue()).body)
+function generateAST() {
+	try {
+		const value = editor.getValue()
+		const ast = esprima.parse(value)
+		const html = cute.html(ast)
+		dumper.innerHTML = html
+	}
+	catch (message) {
+		dumper.innerHTML = `<error>${message}</error>`
+	}
+}
 
+generateAST()
 editor.on('change', () => {
-	dumper.innerHTML = cute.html(esprima.parse(editor.getValue()).body)
+	generateAST()
 })
-// dumper.innerHTML = cute.html()

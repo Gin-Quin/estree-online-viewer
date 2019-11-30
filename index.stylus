@@ -1,0 +1,130 @@
+
+headerHeight = 100px
+titleHeight = 42px
+editorPadding = 8px
+bodyMargin = 20px
+fullHeight = headerHeight + titleHeight + editorPadding + 2 * bodyMargin
+mainHeight = "calc(100vh - %s)" % fullHeight
+
+html
+	overflow visible 
+
+body
+	width 94vw
+	height 100vh
+	max-width 1280px
+	flex 1
+	display flex
+	flex-direction column
+	justify-content center
+	margin 0 auto
+
+
+	> header 
+		height headerHeight
+
+	> .titles 
+		display flex
+		height titleHeight
+		color #efefef
+		font-weight bold
+		
+		.arrow
+			position relative
+			font-size 22px
+			bottom 1px
+			
+			&.source
+				right 13px
+				color #ffff76
+				
+			&.ast
+				left 8px
+				color #ff85ff
+
+		> * 
+			flex 1
+			display flex
+			justify-content center
+			align-items center
+			text-align center
+
+
+	> main 
+		display flex
+		flex 1
+
+		> * 
+			flex 1
+			flex-shrink 0
+			overflow auto
+
+
+#editor, #dumper 
+	white-space pre
+	border 1px solid #555
+	height mainHeight
+	overflow auto
+	margin 0 9px
+	padding editorPadding
+
+
+#dumper 
+	/*padding 8px*/
+	font-family monospace
+	background-color #282a36
+	font-size 14px
+
+	> error
+		display block
+		background #d30e0e
+		color white
+		padding 10px 14px
+		border-radius 2px
+
+
+
+/**
+* Dumper style
+*/
+.cute-dump-property 
+	color #ff79c6
+	font-weight bold
+
+ 
+.cute-dump-number 
+	font-weight bold
+	color #bd93f9
+
+ 
+.cute-dump-keyword 
+	font-weight bold
+	font-style italic
+	color #8be9fd
+
+ 
+.cute-dump-string 
+	font-weight bold
+	color #f1fa8c
+
+
+
+@media screen and (max-width 800px), (max-height 600px)
+	body > header
+		display none
+		
+	#editor, #dumper
+		height "calc(100vh - %s)" % (titleHeight + editorPadding + 2 * bodyMargin)
+
+@media screen and (max-width 700px)
+	body > .titles
+		display none
+	
+	body > main
+		display block
+		height 100vh
+		// margin auto
+
+	#editor, #dumper
+		height 41vh
+		margin-top 3vh
